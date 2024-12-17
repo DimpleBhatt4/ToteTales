@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+nav{
+  background-color: #F6F4F2;
+}
+.quickLink__ul li{
+    padding: 10px;
+    /* margin:10px */
+}
+.custom_width{
+  @apply w-full lg:w-[992px] xl:w-[1280px];
+}
+.custom_margin{
+  @apply my-6 lg:my-10
+}
