@@ -19,9 +19,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/header/Header.jsx", "app/(root)/category/[category_name]/page.jsx", "app/(root)/wishlist/page.jsx", "app/(root)/best_sellers/page.jsx", "app/(root)/new_arrivals/page.jsx", "app/(root)/sale/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/page.tsx.old", "src/app/layout.tsx.old", "my-app/app/(root)/best_sellers/page.jsx", "my-app/app/(root)/new_arrivals/page.jsx", "my-app/app/(root)/sale/page.jsx"],
   "exclude": ["node_modules"]
 }

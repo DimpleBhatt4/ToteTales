@@ -1,5 +1,5 @@
 const products = [
-    {
+  {
       p_id: 1,
       category: "Tote_Bags",
       actual_price: 2999,
@@ -7,9 +7,10 @@ const products = [
       name: "Elegant Leather Tote",
       description: "A stylish leather tote perfect for all occasions.",
       rating: 4.5,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-12-10"
+  },
+  {
       p_id: 2,
       category: "Backpacks",
       actual_price: 1999,
@@ -17,9 +18,10 @@ const products = [
       name: "Casual Day Backpack",
       description: "Comfortable and lightweight backpack for daily use.",
       rating: 4.2,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-11-30"
+  },
+  {
       p_id: 3,
       category: "Wallets_and_Clutches",
       actual_price: 999,
@@ -27,9 +29,10 @@ const products = [
       name: "Slim Minimalist Wallet",
       description: "A compact wallet made with premium materials.",
       rating: 4.8,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-12-01"
+  },
+  {
       p_id: 4,
       category: "Laptop_Bags",
       actual_price: 4999,
@@ -37,9 +40,10 @@ const products = [
       name: "Designer Handbag",
       description: "High-end handbag with a sophisticated design.",
       rating: 4.7,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-10-20"
+  },
+  {
       p_id: 5,
       category: "Wallets_and_Clutches",
       actual_price: 1299,
@@ -47,9 +51,10 @@ const products = [
       name: "Evening Clutch",
       description: "Elegant clutch for special occasions.",
       rating: 4.3,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-12-15"
+  },
+  {
       p_id: 6,
       category: "Backpacks",
       actual_price: 2499,
@@ -57,9 +62,10 @@ const products = [
       name: "Travel Backpack",
       description: "Durable backpack with ample storage for travel.",
       rating: 4.6,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-11-25"
+  },
+  {
       p_id: 7,
       category: "Wallets_and_Clutches",
       actual_price: 799,
@@ -67,9 +73,10 @@ const products = [
       name: "Classic Wallet",
       description: "Timeless design with multiple compartments.",
       rating: 4.1,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-12-05"
+  },
+  {
       p_id: 8,
       category: "Laptop_Bags",
       actual_price: 3499,
@@ -77,9 +84,10 @@ const products = [
       name: "Trendy Shoulder Bag",
       description: "A modern shoulder bag for everyday use.",
       rating: 4.4,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-09-10"
+  },
+  {
       p_id: 9,
       category: "Wallets_and_Clutches",
       actual_price: 1099,
@@ -87,9 +95,10 @@ const products = [
       name: "Compact Clutch",
       description: "A sleek clutch with a magnetic closure.",
       rating: 4.2,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-12-17"
+  },
+  {
       p_id: 10,
       category: "Laptop_Bags",
       actual_price: 2699,
@@ -97,9 +106,10 @@ const products = [
       name: "Everyday Handbag",
       description: "Spacious and practical handbag for daily needs.",
       rating: 4.3,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-11-20"
+  },
+  {
       p_id: 11,
       category: "Backpacks",
       actual_price: 1899,
@@ -107,9 +117,10 @@ const products = [
       name: "School Backpack",
       description: "Comfortable and sturdy backpack for students.",
       rating: 4.4,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-10-15"
+  },
+  {
       p_id: 12,
       category: "Wallets_and_Clutches",
       actual_price: 899,
@@ -117,9 +128,10 @@ const products = [
       name: "Zipper Wallet",
       description: "Wallet with a secure zipper closure.",
       rating: 4.0,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-11-05"
+  },
+  {
       p_id: 13,
       category: "Laptop_Bags",
       actual_price: 4599,
@@ -127,9 +139,10 @@ const products = [
       name: "Luxury Handbag",
       description: "Premium handbag with exquisite craftsmanship.",
       rating: 4.9,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-12-14"
+  },
+  {
       p_id: 14,
       category: "Wallets_and_Clutches",
       actual_price: 1399,
@@ -137,9 +150,10 @@ const products = [
       name: "Party Clutch",
       description: "A glamorous clutch for parties and events.",
       rating: 4.5,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-11-25"
+  },
+  {
       p_id: 15,
       category: "Backpacks",
       actual_price: 2999,
@@ -147,9 +161,10 @@ const products = [
       name: "Adventure Backpack",
       description: "Rugged backpack ideal for outdoor activities.",
       rating: 4.7,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-12-01"
+  },
+  {
       p_id: 16,
       category: "Wallets_and_Clutches",
       actual_price: 1199,
@@ -157,9 +172,10 @@ const products = [
       name: "Leather Wallet",
       description: "A durable wallet made from genuine leather.",
       rating: 4.6,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-11-15"
+  },
+  {
       p_id: 17,
       category: "Laptop_Bags",
       actual_price: 3899,
@@ -167,9 +183,10 @@ const products = [
       name: "Chic Handbag",
       description: "Stylish handbag with a contemporary design.",
       rating: 4.4,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-10-01"
+  },
+  {
       p_id: 18,
       category: "Wallets_and_Clutches",
       actual_price: 1599,
@@ -177,9 +194,10 @@ const products = [
       name: "Embellished Clutch",
       description: "A clutch adorned with beautiful embellishments.",
       rating: 4.8,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-12-08"
+  },
+  {
       p_id: 19,
       category: "Backpacks",
       actual_price: 1699,
@@ -187,9 +205,10 @@ const products = [
       name: "Compact Backpack",
       description: "A small and lightweight backpack for essentials.",
       rating: 4.2,
-      img_url:'/trial_img.webp'
-    },
-    {
+      img_url: '/trial_img.webp',
+      launchDate: "2024-11-10"
+  },
+  {
       p_id: 20,
       category: "Wallets_and_Clutches",
       actual_price: 999,
@@ -197,9 +216,9 @@ const products = [
       name: "Travel Wallet",
       description: "Perfect wallet for organizing travel documents.",
       rating: 4.3,
-      img_url:'/trial_img.webp'
-    },
-  ];
+      img_url: '/trial_img.webp',
+      launchDate: "2024-12-12"
+  }
+];
 
-  export default products
-  
+export default products;

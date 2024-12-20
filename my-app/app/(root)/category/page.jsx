@@ -1,10 +1,10 @@
 import React from 'react'
+import Category from '../../components/category/Category'
 
 const page = ({children}) => {
   return (
     <div>
-        <p>Category pagess!!!</p>
-        {children}
+        <Category />
     </div>
   )
 }
