@@ -3,7 +3,7 @@ import React from 'react'
 
 const QuickLinks = () => {
   return (
-    <div className='text-center md:flex gap-10'>
+    <div className='text-center md:flex gap-10 font-text-blue'>
         {/* Col-1 */}
         <ul className='quickLink__ul'>
             <li className='font-bold'>Categories</li>

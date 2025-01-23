@@ -14,7 +14,7 @@ const AnnouncementBar = () => {
   const { currentItem: currentAnnouncement, isFading } = useCarousel(announcements, change_time);
 
   return (
-    <div className="announcement-bar flex justify-center items-center p-2 bg-gray-400 text-white">
+    <div className="announcement-bar flex justify-center items-center p-2 font-bg-blue text-white">
       <p
         className={`flex justify-center text-sm transition-opacity duration-500 ${
           isFading ? "opacity-0" : "opacity-100"

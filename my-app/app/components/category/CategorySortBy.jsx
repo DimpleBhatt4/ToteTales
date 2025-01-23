@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const CategorySortBy = ({categoryName, type }) => {
+const CategorySortBy = ({categoryName, pageName }) => {
   const sortByOptions = [
     { label: "Best selling", value: "best-selling" },
     { label: "Alphabetically, A-Z", value: "asc" },
@@ -18,7 +18,7 @@ const CategorySortBy = ({categoryName, type }) => {
             href={`${
               categoryName
                 ? `/category/${categoryName}/?sortBy=${item.value}`
-                : `/${type}/?sortBy=${item.value}`
+                : `/${pageName}/?sortBy=${item.value}`
             }`}>
             <li className='p-2 hover:text-gray-400'>{item.label}</li>
           </Link>

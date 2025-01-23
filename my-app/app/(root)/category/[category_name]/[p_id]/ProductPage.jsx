@@ -9,8 +9,7 @@ import DiscRibbon from "../../../../components/disc_ribbon/DiscRibbon";
 import { IoIosStar } from "react-icons/io";
 
 const ProductPage = ({ product }) => {
-  const { cartItemsId, wishlistItemsId } =
-    useContext(GlobalContext);
+  const { cartItemsId, wishlistItemsId } = useContext(GlobalContext);
 
   return (
     <div className='custom_margin mx-6 flex gap-8'>
@@ -58,13 +57,17 @@ const ProductPage = ({ product }) => {
         <div className='flex'>
           <Button
             value={`${
-                cartItemsId.includes(product.p_id) ? "Remove from Cart" : "Add to Cart"
+              cartItemsId.includes(product.p_id)
+                ? "Remove from Cart"
+                : "Add to Cart"
             }`}
             itemId={product.p_id}
           />
           <Button
             value={`${
-                wishlistItemsId.includes(product.p_id) ? "Remove from Wishlist" : "Wishlist"
+              wishlistItemsId.includes(product.p_id)
+                ? "Remove from Wishlist"
+                : "Wishlist"
             }`}
             itemId={product.p_id}
           />

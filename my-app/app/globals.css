@@ -1,13 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
+:root {
+  --font-poppins: 'Poppins', sans-serif;
+  --font-roboto: 'roboto', sans-serif;
+  --color-blue: #142B6F;
+  --color-gray:#acb0ad;
+  --color-yellow:#fbda03;
+  --color-light_yellow:#fee569;
+  --color-brown:#b17a02;
+}
+.font-bg-blue{
+  background-color: var(--color-blue);
+}
+.font-text-blue{
+  color: var(--color-blue);
+}
+.font-bg-yellow{
+  background-color: var(--color-yellow);
+}
+.font-bg-light_yellow{
+  background-color: var(--color-light_yellow);
+}
+.font-text-brown{
+  color: var(--color-brown);
+}
+.font-bg-brown{
+  background-color: var(--color-brown);
+}
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-roboto); /* Default font for body */
+}
+
+h1, h2, h3 {
+  font-family: var(--font-poppins); /* Use Montserrat for headings */
 }
 nav{
-  background-color: #F6F4F2;
+  background-color:var(--color-light_yellow);
 }
 .quickLink__ul li{
     padding: 10px;

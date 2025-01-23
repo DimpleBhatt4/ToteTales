@@ -9,7 +9,7 @@ import Nav_mobile_sidebar from './Nav_mobile_sidebar'
 const Nav_mobile = () => {
   const [isHamClicked, setIsHamClicked] = useState(false);
   return (
-    <nav className='flex justify-around items-center md:hidden'>
+    <nav className='flex justify-around items-center md:hidden z-50'>
       <div>
         <RxHamburgerMenu
           // className={`text-xl ${!isHamClicked && "translate-x-[-100%]"}`}

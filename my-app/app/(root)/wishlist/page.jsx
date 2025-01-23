@@ -4,13 +4,7 @@ import { GlobalContext } from "../../provider/ProductsProvider";
 import products from "@/public/products";
 import Image from "next/image";
 import Button from "../../components/button/Button";
-import { TbTruckDelivery } from "react-icons/tb";
-import { LuBoxes } from "react-icons/lu";
-import { RiSecurePaymentLine } from "react-icons/ri";
-import { GiCash } from "react-icons/gi";
 import Link from "next/link";
-import { LiaRupeeSignSolid } from "react-icons/lia";
-import { FaMinus, FaPlus } from "react-icons/fa";
 
 const page = () => {
   const { wishlistItemsId, cartItemsId } = useContext(GlobalContext);

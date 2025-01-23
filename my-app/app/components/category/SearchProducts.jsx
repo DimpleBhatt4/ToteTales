@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SearchProducts = ({ products, setFilteredProducts, searchByKey , filterByField}) => {
+const SearchProducts = ({ products, setFilteredProducts, searchByKey}) => {
   const [inputVal, setInputVal] = useState("");
   
   function handleInputChange(e) {
@@ -10,7 +10,6 @@ const SearchProducts = ({ products, setFilteredProducts, searchByKey , filterByF
     // Filter
     const filtered = products.filter(
       (product) =>
-        product[filterByField[0]] === filterByField[1] &&
         product[searchByKey].toLowerCase().includes(searchValue)
     );
     setFilteredProducts(filtered);

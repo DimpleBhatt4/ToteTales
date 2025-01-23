@@ -4,7 +4,7 @@ import { MdOutlineMail } from "react-icons/md";
 import { IoStorefrontOutline } from "react-icons/io5";
 const Help = () => {
   return (
-    <div className='border-2 md:w-[30vw] md:h-[30vh] p-4'>
+    <div className='rounded-lg md:w-[30vw] md:h-[30vh] p-4 font-bg-light_yellow font-text-brown '>
       <div className='font-bold sm:text-lg md:text-xl py-2'>Help is Always Here</div>
       <ul className="table w-full">
   {/* Call Us */}

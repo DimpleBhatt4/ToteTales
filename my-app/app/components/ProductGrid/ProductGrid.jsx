@@ -8,62 +8,58 @@ import { RiLayoutGridFill, RiLayoutGrid2Fill } from "react-icons/ri";
 import { TfiLayoutGrid4Alt } from "react-icons/tfi";
 import { IoChevronDown } from "react-icons/io5";
 import CategorySortBy from "@/app/components/category/CategorySortBy";
+import SearchProducts from "@/app/components/category/SearchProducts";
 
-
-const ProductGrid = ({ title, initialProducts, type }) => {
+const ProductGrid = ({
+  title,
+  initialProducts,
+  pageName,
+  searchParams,
+  categoryName,
+}) => {
   const [products, setProducts] = useState(initialProducts);
   const [layoutType, setLayoutType] = useState("medium");
   const [searchQuery, setSearchQuery] = useState("");
-  const [sortBy, setSortBy] = useState("");
   const [isSortingClicked, setIsSortingClicked] = useState(false);
-
   useEffect(() => {
-    let filtered = initialProducts;
+    (async () => {
+      let filtered = [...initialProducts];
+      const query = await searchParams;
 
-    // Search filtering
-    if (searchQuery) {
-      filtered = filtered.filter((product) =>
-        product.name.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    }
+      if (searchQuery) {
+        filtered = filtered.filter((product) =>
+          product.name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+      }
 
-    // Sorting
-    filtered = sortProducts(filtered, sortBy);
+      if (query) {
+        filtered = sortProducts(filtered, query.sortBy);
+      }
+      setProducts(filtered);
+    })();
+  }, [searchQuery, initialProducts]);
 
-    setProducts(filtered);
-  }, [searchQuery, sortBy, initialProducts]);
-
-  function handleLayoutChange(value) {
-    setLayoutType(value);
-  }
-
-  function sortProducts(arr, order) {
+  const sortProducts = (arr, order) => {
     return [...arr].sort((a, b) => {
+      const priceA = a.sale_price ?? a.actual_price;
+      const priceB = b.sale_price ?? b.actual_price;
+
       switch (order) {
         case "best-selling":
           return b.rating - a.rating;
-
         case "asc":
           return a.name.localeCompare(b.name);
-
         case "desc":
           return b.name.localeCompare(a.name);
-
         case "low-to-high":
-          const priceA = a.sale_price ?? a.actual_price;
-          const priceB = b.sale_price ?? b.actual_price;
           return priceA - priceB;
-
         case "high-to-low":
-          const priceAHigh = a.sale_price ?? a.actual_price;
-          const priceBHigh = b.sale_price ?? b.actual_price;
-          return priceBHigh - priceAHigh;
-
+          return priceB - priceA;
         default:
           return 0;
       }
     });
-  }
+  };
 
   return (
     <div>
@@ -76,60 +72,59 @@ const ProductGrid = ({ title, initialProducts, type }) => {
             onClick={() => setIsSortingClicked(!isSortingClicked)}>
             <span>Sort By</span>
             <IoChevronDown />
-            {isSortingClicked && <CategorySortBy type={type} />}
+            {isSortingClicked && (
+              <CategorySortBy categoryName={categoryName} pageName={pageName} />
+            )}
           </button>
         </div>
-
         <div className='grow flex items-center'>
-          <input
-            type='text'
-            placeholder='Search products...'
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className='p-2 border w-full'
+        <SearchProducts
+            products={initialProducts}
+            setFilteredProducts={setProducts}
+            searchByKey={"name"}
           />
         </div>
-
         <div className='flex w-[20%] gap-2 justify-end'>
           <RiLayoutGridFill
             className={`text-xl ${
-              layoutType == "large" ? "text-black" : "text-gray-400"
+              layoutType === "large" ? "text-black" : "text-gray-400"
             }`}
-            onClick={() => handleLayoutChange("large")}
+            onClick={() => setLayoutType("large")}
           />
           <RiLayoutGrid2Fill
             className={`text-xl ${
-              layoutType == "medium" ? "text-black" : "text-gray-400"
+              layoutType === "medium" ? "text-black" : "text-gray-400"
             }`}
-            onClick={() => handleLayoutChange("medium")}
+            onClick={() => setLayoutType("medium")}
           />
           <TfiLayoutGrid4Alt
             className={`text-xl ${
-              layoutType == "compact" ? "text-black" : "text-gray-400"
+              layoutType === "compact" ? "text-black" : "text-gray-400"
             }`}
-            onClick={() => handleLayoutChange("compact")}
+            onClick={() => setLayoutType("compact")}
           />
         </div>
       </div>
-
       <div className='flex justify-center'>
         <ul
           className={`grid gap-x-8 gap-y-8 ${
-            layoutType == "large"
+            layoutType === "large"
               ? "grid-cols-3"
-              : layoutType == "medium"
+              : layoutType === "medium"
               ? "grid-cols-4"
               : "grid-cols-6"
-          } custom_margin custom_width`}>
+          }`}>
           {products.map((item) => (
             <li className='w-auto' key={item.p_id}>
               <Link href={`/category/${item.category}/${item.p_id}`}>
                 <div className='relative'>
                   <Image
                     className={`rounded-lg ${
-                      layoutType == "large"
-                        ? "h-[500] w-[500px]"
-                        : layoutType == "compact" && "w-3/4"
+                      layoutType === "large"
+                        ? "h-[500px] w-[500px]"
+                        : layoutType === "compact"
+                        ? "w-3/4"
+                        : "h-[250px] w-[250px]"
                     }`}
                     src={item.img_url}
                     height={250}
@@ -137,12 +132,12 @@ const ProductGrid = ({ title, initialProducts, type }) => {
                     alt={item.name}
                   />
                 </div>
-                <p className={`${layoutType == "compact" && "hidden"}`}>
+                <p className={`${layoutType === "compact" && "hidden"}`}>
                   {item.name}
                 </p>
                 <div
                   className={`flex justify-between ${
-                    layoutType == "compact" && "hidden"
+                    layoutType === "compact" && "hidden"
                   }`}>
                   {item.sale_price == null ? (
                     <p>Rs. {item.actual_price}</p>
