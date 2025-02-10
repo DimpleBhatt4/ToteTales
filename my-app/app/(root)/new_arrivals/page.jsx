@@ -4,7 +4,7 @@ import ProductGrid from "../../components/ProductGrid/ProductGrid";
 
 const NewArrivalsPage = async ({searchParams}) => {
   console.log('searchParams', await searchParams)
-  const products = await handleFetch("http://localhost:3000/api/products");
+  const products = await handleFetch("http://localhost:3000/api/products/viewProd");
 
   const today = new Date();
   console.log(today);

@@ -18,12 +18,15 @@ const Nav_mobile = () => {
       </div>
       {/* Logo */}
       <div>
-      <Image
-          src='/ToteTales_logo.png'
-          height={150}
-          width={150}
-          alt='Logo Image'
-        />
+      <Link href='/'>
+            {" "}
+            <Image
+              src='/ToteTales_logo.png'
+              height={150}
+              width={150}
+              alt='Logo Image'
+            />
+          </Link>
       </div>
       {/* Cart-profile */}
       <Cart_and_login />

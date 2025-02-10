@@ -4,10 +4,11 @@ import React from 'react';
 import Image from 'next/image';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css'; // Import default Splide CSS
+import Link from 'next/link';
 
 const Main_Carousel = () => {
   return (
-    <div className='flex justify-center'>
+    <div className='flex justify-center z-[-1]'>
         <div className="custom_width flex-col justify-center items-center">
       <div className='custom_width'>
       <Splide
@@ -16,7 +17,7 @@ const Main_Carousel = () => {
           perPage: 2,         // Number of slides visible at once
           perMove: 1,         // Number of slides to move on navigation
           autoplay: true,     // Enable autoplay
-          interval: 3000,     // Time between slides in ms
+          interval: 5000,     // Time between slides in ms
           gap: '1rem',        // Gap between slides
           padding: { left: '2rem', right: '2rem' }, // Add padding to the carousel
           pagination: false,  // Disable pagination dots
@@ -31,6 +32,7 @@ const Main_Carousel = () => {
         {/* Slides */}
         
         <SplideSlide>
+          <Link href='/sale'>
           <Image
             src="/main_fold_carousel_1.png"
             width={640}
@@ -38,6 +40,7 @@ const Main_Carousel = () => {
             alt="Bag Image 1 Down"
             className="rounded-md shadow-lg"
           />
+          </Link>
         </SplideSlide>
         <SplideSlide>
           <Image

@@ -1,13 +1,21 @@
-export default async function handleFetch(endpoint) {
+export default async function handleFetch(endpoint, config = {}) {
   try {
-    const response = await fetch(endpoint);
+    console.log("Fetching data from:", endpoint);
+
+    const response = await fetch(endpoint, config);
+
+    console.log("Raw response:", response);
+
+    // if (!response.ok) {
+    //   throw new Error(`HTTP error! Status: ${response.status}`);
+    // }
+
     const data = await response.json();
-    if (!response.ok) {
-    console.log('this is when respojsenis not OK');
-      throw new Error("Failed to fetch data");
-    }
+    console.log("Parsed response:", data);
+
     return data;
   } catch (error) {
-    console.log(error);
+    console.error("Fetch error:", error.message);
+    return null;
   }
 }

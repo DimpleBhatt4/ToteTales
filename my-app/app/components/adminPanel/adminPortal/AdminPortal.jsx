@@ -1,6 +1,11 @@
+"use client"
 import React from 'react'
+import { useState } from 'react'
+import AddProduct from '../addProduct/AddProduct'
+import RemoveProduct from '../removeProduct/RemoveProduct'
 
 const adminPanel = () => {
+  const [disabledForm, setDisabledForm] = useState(true)
   return (
     <div>
         {/* Nav search-Add*/}
@@ -12,13 +17,18 @@ const adminPanel = () => {
             </div>
           {/* Add Product  */}
             <div >
-              <button className='px-3 py-2 rounded-md my-3 bg-[#F7CE28]'>Add Product</button>
+              <button onClick={()=>setDisabledForm(()=>!disabledForm)} className='px-3 py-2 rounded-md my-3 bg-[#F7CE28]'>Add Product</button>
             </div>
             {/* Remove Product  */}
             <div >
               <button className='px-3 py-2 rounded-md my-3 bg-[#F7CE28]'>Remove Product</button>
             </div>
         </nav>
+        <div>
+          {/* {
+            !disabledForm ?  <AddProduct /> : <RemoveProduct />
+          } */}
+        </div>
     </div>
   )
 }

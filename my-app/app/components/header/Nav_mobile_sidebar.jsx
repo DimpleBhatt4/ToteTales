@@ -23,26 +23,26 @@ const Nav_mobile_sidebar = ({isHamClicked, setIsHamClicked}) => {
           <ul className='my-4 text-sm'>
             <li className='border-b-2 border-gray-500 my-4 p-2 flex justify-between items-center'>
               <Link
-                href=''
+                href='/sale'
                 className='text-red-400 hover:text-red-600 text-2xl'>
                 SALE!
               </Link>
               <FaAngleRight />
             </li>
             <li className='border-b-2 border-gray-500 my-4 p-2 flex justify-between items-center'>
-              <Link href='' className='flex text-gray-700 hover:text-black'>
+              <Link href='/category' className='flex text-gray-700 hover:text-black'>
                 Shop by Category
               </Link>
               <FaAngleRight />
             </li>
             <li className='border-b-2 border-gray-500 my-4 p-2 flex justify-between items-center'>
-              <Link href='' className='flex text-gray-700 hover:text-black'>
+              <Link href='/new_arrivals' className='flex text-gray-700 hover:text-black'>
                 What's New
               </Link>
               <FaAngleRight />
             </li>
             <li className='border-b-2 border-gray-500 my-4 p-2 flex justify-between items-center'>
-              <Link href='' className='flex text-gray-700 hover:text-black'>
+              <Link href='/best_sellers' className='flex text-gray-700 hover:text-black'>
                 BestSellers
               </Link>
               <FaAngleRight />
@@ -96,7 +96,7 @@ const Nav_mobile_sidebar = ({isHamClicked, setIsHamClicked}) => {
           {/* Help */}
             <ul className="bg-gray-200">
                 <li className="my-4">
-                    <Link href=''>Profile</Link>
+                    <Link href='/profile'>Profile</Link>
                 </li>
                 <li>
                     <Link href=''>Help</Link>

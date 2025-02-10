@@ -17,6 +17,7 @@ const ProductGrid = ({
   searchParams,
   categoryName,
 }) => {
+  console.log("This is product grid")
   const [products, setProducts] = useState(initialProducts);
   const [layoutType, setLayoutType] = useState("medium");
   const [searchQuery, setSearchQuery] = useState("");
@@ -33,6 +34,7 @@ const ProductGrid = ({
       }
 
       if (query) {
+        console.log("Enetring query")
         filtered = sortProducts(filtered, query.sortBy);
       }
       setProducts(filtered);
@@ -40,6 +42,7 @@ const ProductGrid = ({
   }, [searchQuery, initialProducts]);
 
   const sortProducts = (arr, order) => {
+    console.log("sort working")
     return [...arr].sort((a, b) => {
       const priceA = a.sale_price ?? a.actual_price;
       const priceB = b.sale_price ?? b.actual_price;

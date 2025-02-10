@@ -31,6 +31,6 @@ const userSchema = new mongoose.Schema({
 })
 // Next.js uses Edge computing rather than having it's own server hence we check if it is connecting to the MongoDB for the first time or not
 // Create new model with name 'users' if not already present
-const User = mongoose.models.users || mongoose.model('users', userSchema)
+const User = mongoose.models.User || mongoose.model('User', userSchema)
 
 export default User

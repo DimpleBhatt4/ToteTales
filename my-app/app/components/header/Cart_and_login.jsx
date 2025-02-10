@@ -11,7 +11,7 @@ const Cart_and_login = () => {
   const { cartItemsId, wishlistItemsId } = useContext(GlobalContext);
 
   return (
-    <div className='flex items-right space-x-4 w-[15%]'>
+    <div className='flex items-right space-x-4'>
       {/* User Icon */}
       <Link href='/profile'>
         <LuUser className='icon-user text-2xl text-gray-700 hover:text-black' />

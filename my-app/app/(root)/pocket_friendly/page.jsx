@@ -3,7 +3,7 @@ import ProductGrid from "../../components/ProductGrid/ProductGrid";
 import handleFetch from "@/app/utilis/server/handleFetch";
 
 const PocketFriendly = async () => {
-  const products = await handleFetch("http://localhost:3000/api/products");
+  const products = await handleFetch("http://localhost:3000/api/products/viewProd");
   const lessPriceItems = products.filter(
     (item) =>
       (
