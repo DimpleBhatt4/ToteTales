@@ -8,22 +8,22 @@ const QuickLinks = () => {
         <ul className='quickLink__ul'>
             <li className='font-bold'>Categories</li>
             <li>
-                <Link href=''>Handbags</Link>
+                <Link href='/sale'>Sale</Link>
             </li>
             <li>
-                <Link href=''>Slings</Link>
+                <Link href='/category/Wallets_and_Clutches'>Wallets</Link>
             </li>
             <li>
-                <Link href=''>Tote</Link>
+                <Link href='/category/Tote_Bags'>Tote</Link>
             </li>
             <li>
-                <Link href=''>Crossbody</Link>
+                <Link href='/category/Wallets_and_Clutches'>Clutches</Link>
             </li>
             <li>
-                <Link href=''>Travel Story Collection</Link>
+                <Link href='/category/Backpacks'>Travel Story Collection</Link>
             </li>
             <li>
-                <Link href=''>Laptop Bag</Link>
+                <Link href='/category/Laptop_Bags'>Laptop Bag</Link>
             </li>
         </ul>
         {/* Col-2 */}
@@ -52,10 +52,10 @@ const QuickLinks = () => {
         <ul className='quickLink__ul'>
             <li className='font-bold'>Help and FAQs</li>
             <li>
-                <Link href=''>My Orders</Link>
+                <Link href='/wishlist'>My Wishlist</Link>
             </li>
             <li>
-                <Link href=''>My Returns</Link>
+                <Link href='/cart'>My Cart</Link>
             </li>
             <li>
                 <Link href=''>Corporate Bulk Orders</Link>

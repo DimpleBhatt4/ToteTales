@@ -31,9 +31,9 @@ const FooterLinks = () => {
         />
       </div>
       {/* links and Help */}
-      <div className="md:flex m-4 gap-20 justify-center items-center">
+      <div className="lg:flex m-4 gap-20 justify-center items-center">
         <QuickLinks className='w-[50vw]' />
-        <Help className='w-[50vw]' />
+        <Help className='w-[100%] lg:w-[50vw]' />
       </div>
     </div>
   );

@@ -1,18 +1,26 @@
 'use client';
 
-import React, { useContext,useEffect,useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { LuUser } from "react-icons/lu";
 import { RiLuggageCartLine } from "react-icons/ri";
 import { TiHeartOutline } from "react-icons/ti";
 import { GlobalContext } from "@/app/provider/ProductsProvider";
-import handleFetch from "@/app/utilis/server/handleFetch";
 
 const Cart_and_login = () => {
-  const { cartItemsId, wishlistProducts } = useContext(GlobalContext);
-  console.log("wishlist products", wishlistProducts)
-
+  const { wishlistProducts, cartProducts } = useContext(GlobalContext);
   
+  const [wishlistCount, setWishlistCount] = useState(wishlistProducts.length);
+  const [cartCount, setCartCount] = useState(cartProducts.length);
+
+  useEffect(() => {
+    setWishlistCount(wishlistProducts.length);
+  }, [wishlistProducts]); 
+
+  useEffect(() => {
+    setCartCount(cartProducts.length);
+  }, [cartProducts]);
+
   return (
     <div className='flex items-right space-x-4'>
       {/* User Icon */}
@@ -24,7 +32,7 @@ const Cart_and_login = () => {
       <Link href='/cart' className='relative'>
         <RiLuggageCartLine className='icon-cart text-2xl text-gray-700 hover:text-black' />
         <span className='absolute text-green-600 bottom-[50%] left-[73%] pointer-events-none'>
-          {cartItemsId.length}
+          {cartCount}
         </span>
       </Link>
 
@@ -32,7 +40,7 @@ const Cart_and_login = () => {
       <Link href='/wishlist' className='relative'>
         <TiHeartOutline className='icon-wishlist text-2xl text-gray-700 hover:text-black' />
         <span className='absolute text-green-600 bottom-[50%] left-[73%] pointer-events-none'>
-          {wishlistProducts.length}
+          {wishlistCount}
         </span>
       </Link>
     </div>
