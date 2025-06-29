@@ -99,7 +99,7 @@ const ProductPage = ({ product }) => {
   };
 
   return (
-    <div className='custom_margin mx-6 flex gap-8'>
+    <div className='custom_margin mx-6 flex flex-col md:flex-row gap-8'>
       <div className='relative'>
         <Image
           className='rounded-lg'

@@ -7,7 +7,7 @@ import SocialMedia from './SocialMedia'
 const Footer = () => {
   return (
     <footer className=' w-full'>
-      <NewsLetter />
+      {/* <NewsLetter /> */}
       <FooterLinks />
       <SocialMedia />
     </footer>

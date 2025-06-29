@@ -8,7 +8,7 @@ const FooterLinks = () => {
   return (
     <div className=''>
       {/* PayLinks icons */}
-      <div className='flex gap-2 justify-end border-b-2 m-4 pb-4'>
+      <div className='flex gap-2 justify-end border-b-2 m-4 pb-4 '>
         <Image
           src='/stripe_icon1.svg'
           height={50}

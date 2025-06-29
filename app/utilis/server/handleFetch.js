@@ -8,35 +8,30 @@
  * @throws {Response|Error} Throws the response object if the request fails with a non-2xx status,
  *                          or an Error object for network failures.
  */
-export default async function handleFetch(
-  endpoint,
-  method = "GET",
-  body = null
-) {
+export default async function handleFetch(endpoint, method = "GET", body = null) {
   try {
-    // Construct request configuration
     const config = {
       method,
-      credentials: "include", // Include credentials (e.g., cookies, sessions)
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Credentials": "true",
       },
-      ...(body && method !== "GET" ? { body: JSON.stringify(body) } : {}), // Add body only for non-GET requests
+      ...(body && method !== "GET" ? { body: JSON.stringify(body) } : {}),
     };
 
-    // Perform the fetch request
     const response = await fetch(endpoint, config);
+    const data = await response.json(); // Always parse the response
 
-    // If response status is not OK (non-2xx), throw the response to be handled by the caller
     if (!response.ok) {
-      throw response;
+      // Throw readable error
+      throw { status: response.status, message: data.message || "Request failed" };
     }
 
-    // Parse and return the response JSON
-    return await response.json();
+    return data;
   } catch (error) {
-    // Throw network errors or failed fetch attempts to be handled by the consuming component
-    throw error;
+    throw {
+      status: error.status || 500,
+      message: error.message || "Network error",
+    };
   }
 }

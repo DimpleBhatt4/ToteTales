@@ -12,7 +12,7 @@ export async function GET(request) {
     const userCart = await Cart.findOne({ user: userId }).populate({
         path: "items.product",
         select: "name actual_price sale_price img_url",
-      }).lean(); // Convert to plain JS object (faster)
+      }).lean(); 
 
     // If the cart doesn't exist, return an empty array
     if (!userCart || userCart.items.length === 0) {

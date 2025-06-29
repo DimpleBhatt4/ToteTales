@@ -17,143 +17,95 @@ const ProductGrid = ({
   searchParams,
   categoryName,
 }) => {
-  console.log("This is product grid")
   const [products, setProducts] = useState(initialProducts);
   const [layoutType, setLayoutType] = useState("medium");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isSortingClicked, setIsSortingClicked] = useState(false);
-  useEffect(() => {
-    (async () => {
-      let filtered = [...initialProducts];
-      const query = await searchParams;
 
-      if (searchQuery) {
-        filtered = filtered.filter((product) =>
-          product.name.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-      }
-
-      if (query) {
-        console.log("Enetring query")
-        filtered = sortProducts(filtered, query.sortBy);
-      }
-      setProducts(filtered);
-    })();
-  }, [searchQuery, initialProducts]);
-
-  const sortProducts = (arr, order) => {
-    console.log("sort working")
-    return [...arr].sort((a, b) => {
-      const priceA = a.sale_price ?? a.actual_price;
-      const priceB = b.sale_price ?? b.actual_price;
-
-      switch (order) {
-        case "best-selling":
-          return b.rating - a.rating;
-        case "asc":
-          return a.name.localeCompare(b.name);
-        case "desc":
-          return b.name.localeCompare(a.name);
-        case "low-to-high":
-          return priceA - priceB;
-        case "high-to-low":
-          return priceB - priceA;
-        default:
-          return 0;
-      }
-    });
-  };
 
   return (
-    <div>
-      <div className='p-4 border flex justify-center text-2xl'>{title}</div>
-      <div className='p-4 border text-sm mb-4 flex justify-center items-center'>
-        <div className='flex w-[20%] gap-4'>
-          <div>{products.length} Products</div>
-          <button
-            className='flex justify-center items-center relative'
-            onClick={() => setIsSortingClicked(!isSortingClicked)}>
-            <span>Sort By</span>
-            <IoChevronDown />
-            {isSortingClicked && (
-              <CategorySortBy categoryName={categoryName} pageName={pageName} />
-            )}
-          </button>
+    <div className="w-full ">
+      <div className="p-4 border text-center text-2xl font-semibold">{title}</div>
+
+      {/* Filter Bar */}
+      <div className="p-4 border text-sm mb-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 w-full sm:w-auto
+">
+          {products.length} Products
+
         </div>
-        <div className='grow flex items-center'>
-        <SearchProducts
+
+        <div className="w-full sm:w-auto grow">
+          <SearchProducts
             products={initialProducts}
             setFilteredProducts={setProducts}
             searchByKey={"name"}
           />
         </div>
-        <div className='flex w-[20%] gap-2 justify-end'>
+
+        {/* Layout Controls */}
+        <div className="flex gap-2 justify-end w-full sm:w-auto">
           <RiLayoutGridFill
-            className={`text-xl ${
+            className={`text-xl cursor-pointer ${
               layoutType === "large" ? "text-black" : "text-gray-400"
             }`}
             onClick={() => setLayoutType("large")}
           />
           <RiLayoutGrid2Fill
-            className={`text-xl ${
+            className={`text-xl cursor-pointer ${
               layoutType === "medium" ? "text-black" : "text-gray-400"
             }`}
             onClick={() => setLayoutType("medium")}
           />
-          <TfiLayoutGrid4Alt
-            className={`text-xl ${
-              layoutType === "compact" ? "text-black" : "text-gray-400"
-            }`}
-            onClick={() => setLayoutType("compact")}
-          />
+        
         </div>
       </div>
-      <div className='flex justify-center'>
+
+      {/* Product Grid */}
+      <div className="flex justify-center my-8 px-4">
         <ul
-          className={`grid gap-x-8 gap-y-8 ${
-            layoutType === "large"
-              ? "grid-cols-3"
-              : layoutType === "medium"
-              ? "grid-cols-4"
-              : "grid-cols-6"
-          }`}>
+          className={`grid gap-x-4 gap-y-6
+            ${layoutType === "large" && "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"}
+            ${layoutType === "medium" && "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"}
+            `}
+        >
           {products.map((item) => (
-            <li className='w-auto' key={item.p_id}>
+            <li className="w-full" key={item.p_id}>
               <Link href={`/category/${item.category}/${item.p_id}`}>
-                <div className='relative'>
+                <div className="relative flex justify-center">
                   <Image
-                    className={`rounded-lg ${
-                      layoutType === "large"
-                        ? "h-[500px] w-[500px]"
-                        : layoutType === "compact"
-                        ? "w-3/4"
-                        : "h-[250px] w-[250px]"
-                    }`}
+                    className={`rounded-lg object-cover
+                      ${layoutType === "large" && "w-full h-[400px]"}
+                      ${layoutType === "medium" && "w-full h-[250px]"}
+                      `}
                     src={item.img_url}
-                    height={250}
-                    width={250}
+                    width={layoutType === "large" ? 500 : 250}
+                    height={layoutType === "large" ? 500 : 250}
                     alt={item.name}
                   />
                 </div>
-                <p className={`${layoutType === "compact" && "hidden"}`}>
+                <p
+                  className={`mt-2 text-sm font-medium ${
+                    layoutType === "compact" && "hidden"
+                  }`}
+                >
                   {item.name}
                 </p>
                 <div
-                  className={`flex justify-between ${
+                  className={`flex justify-between text-sm items-center mt-1 ${
                     layoutType === "compact" && "hidden"
-                  }`}>
+                  }`}
+                >
                   {item.sale_price == null ? (
                     <p>Rs. {item.actual_price}</p>
                   ) : (
                     <p>
-                      <strike className='text-gray-400 pr-2 text-red-400'>
+                      <strike className="text-gray-400 pr-1 text-red-400">
                         Rs. {item.actual_price}
                       </strike>{" "}
                       Rs. {item.sale_price}
                     </p>
                   )}
-                  <div className='flex justify-center items-center gap-2'>
-                    <IoIosStar className='text-yellow-400' />
+                  <div className="flex items-center gap-1">
+                    <IoIosStar className="text-yellow-400" />
                     <p>{item.rating} / 5</p>
                   </div>
                 </div>

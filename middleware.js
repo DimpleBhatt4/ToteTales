@@ -4,12 +4,10 @@ export function middleware(request) {
   // Get the current request path
   const path = request.nextUrl.pathname;
 
-  // Log the path for debugging
-  console.log("Middleware executed for path:", path);
 
   // Define public paths
   const isPublicPath =
-    path === '/' || path === '/login' || path === '/signup' || path === '/verifyemail';
+    path === '/' || path === '/login' || path === '/signup';
 
   // Get the token from cookies
   const token = request.cookies.get('token')?.value || '';

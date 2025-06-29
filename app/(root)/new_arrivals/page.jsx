@@ -15,7 +15,6 @@ const NewArrivalsPage = async ({searchParams}) => {
     const diffInDays = currDate - launchDate;
     return diffInDays <= 30;
   });
-  console.log("new arrivals", newArrivals);
   return (
     <ProductGrid
       title='New Arrivals'

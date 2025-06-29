@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Cart_and_login from "./Cart_and_login";
+import CartAndLogin from "./CartAndLogin";
 
 const Nav_desktop = () => {
   return (
@@ -50,7 +50,7 @@ const Nav_desktop = () => {
         </div>
 
         {/* Cart and Login */}
-        <Cart_and_login />
+        <CartAndLogin />
       </div>
     </nav>
   );

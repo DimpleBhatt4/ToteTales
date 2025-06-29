@@ -1,38 +1,53 @@
 import { NextResponse } from "next/server";
 import { connect } from "@/dbConfig/dbConfig";
-import Cart from "../../../../models/cartModel";
-import { getDataFromToken } from "../../../utilis/server/getDataFromToken";
+import Cart from "@/models/cartModel";
+import { getDataFromToken } from "@/app/utilis/server/getDataFromToken";
 
 connect();
 
 export async function PUT(request) {
   try {
     const userId = await getDataFromToken(request);
-    const reqBody = await request.json();
-    const { productId, quantity } = reqBody;
+    const { productId, quantity } = await request.json();
 
-    let userCart = await Cart.findOne({ user: userId });
+    if (!productId || quantity === undefined) {
+      return NextResponse.json({ message: "Missing productId or quantity" }, { status: 400 });
+    }
+
+    const userCart = await Cart.findOne({ user: userId });
 
     if (!userCart) {
       return NextResponse.json({ message: "Cart not found" }, { status: 404 });
     }
 
-    const cartItem = userCart.items.find(item => item.product.toString() === productId);
+    const item = userCart.items.find(
+      (item) => item.product.toString() === productId
+    );
 
-    if (!cartItem) {
+    if (!item) {
       return NextResponse.json({ message: "Product not found in cart" }, { status: 404 });
     }
 
-    cartItem.quantity = quantity; // Update quantity
+    item.quantity = quantity;
     await userCart.save();
 
-    return NextResponse.json({
-      message: "Cart updated successfully",
-      status: 200,
-      updatedCart: userCart
-    });
+    const updatedCart = await Cart.findOne({ user: userId }).populate({
+      path: "items.product",
+      select: "name actual_price sale_price img_url",
+    }).lean();
 
+    return NextResponse.json(
+      {
+        message: "Cart updated successfully",
+        updatedCart,
+      },
+      { status: 200 }
+    );
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error("Cart Update Error:", error);
+    return NextResponse.json(
+      { message: error.message || "Server error" },
+      { status: 500 }
+    );
   }
 }

@@ -38,15 +38,22 @@ const profilePage = () => {
       <div>
         <div className='font-bold text-lg'>Hi, {data.userName}</div>
         <div className='flex gap-4'>
-          <button className='px-3 py-2 rounded-md my-3 bg-[#F7CE28]'>
-            Profile
-          </button>
-          <button className='px-3 py-2 rounded-md my-3 bg-[#F7CE28]'>
-            My Cart
-          </button>
-          <button className='px-3 py-2 rounded-md my-3 bg-[#F7CE28]'>
-            My Wishlist
-          </button>
+          <Link href={"/profile"}>
+            <button className='px-3 py-2 rounded-md my-3 bg-[#F7CE28]'>
+              Profile
+            </button>
+          </Link>
+          <Link href={"/cart"}>
+            <button className='px-3 py-2 rounded-md my-3 bg-[#F7CE28]'>
+              My Cart
+            </button>
+          </Link>
+          <Link href={"/wishlist"}>
+            <button className='px-3 py-2 rounded-md my-3 bg-[#F7CE28]'>
+              My Wishlist
+            </button>
+          </Link>
+
           <button
             className='px-3 py-2 rounded-md my-3 bg-[#F7CE28]'
             onClick={logout}>

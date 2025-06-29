@@ -7,7 +7,7 @@ import { RiLuggageCartLine } from "react-icons/ri";
 import { TiHeartOutline } from "react-icons/ti";
 import { GlobalContext } from "@/app/provider/ProductsProvider";
 
-const Cart_and_login = () => {
+const CartAndLogin = () => {
   const { wishlistProducts, cartProducts } = useContext(GlobalContext);
   
   const [wishlistCount, setWishlistCount] = useState(wishlistProducts.length);
@@ -47,4 +47,4 @@ const Cart_and_login = () => {
   );
 };
 
-export default Cart_and_login;
+export default CartAndLogin;
