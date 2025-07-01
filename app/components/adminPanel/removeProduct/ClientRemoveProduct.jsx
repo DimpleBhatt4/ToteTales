@@ -12,8 +12,6 @@ const ClientRemoveProduct = ({products}) => {
           if (response.error) {
             console.error("Error removing product:", response.error);
           } else {
-            console.log("Product removed successfully!");
-            // \?????????????????/
             setAllProducts(response)
           }
         } catch (error) {

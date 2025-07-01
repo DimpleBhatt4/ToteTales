@@ -9,11 +9,10 @@ export async function connect() {
         console.log('MongoDB connected');
     })
     connection.on('error',(err)=>{
-        console.log('MongoDB connection error, please make sure DB is up and running' + err);
+        console.error('MongoDB connection error, please make sure DB is up and running' + err);
         process.exit();
     })
   } catch (error) {
-    console.log("Something went wrong in connecting to DB");
-    console.log(error);
+    console.error("Something went wrong in connecting to DB");
   }
 }

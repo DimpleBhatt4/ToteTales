@@ -19,7 +19,7 @@ export async function POST(request) {
             data: user
         })
     } catch (error) {
-        console.log(error)
+        console.error(error)
         return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }

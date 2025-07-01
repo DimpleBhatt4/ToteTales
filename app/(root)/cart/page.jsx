@@ -14,7 +14,6 @@ import { GlobalContext } from "@/app/provider/ProductsProvider";
 const CartPage = () => {
   const { cartProducts, setCartProducts } = useContext(GlobalContext);
 
-  console.log("CART PRODUCTS", cartProducts);
 
   // Update quantity
   const updateQuantity = async (productId, quantity) => {
@@ -39,7 +38,6 @@ const CartPage = () => {
 
   // Remove item from cart
   const removeFromCart = async (productId) => {
-    console.log("clicked remove item");
     try {
       if (!productId) {
         console.error("productId is undefined");
@@ -61,7 +59,6 @@ const CartPage = () => {
       }
 
       const data = await response.json();
-      console.log("Product removed successfully:", data);
 
       setCartProducts((prev) =>
         prev.filter((item) => item.product._id !== productId)

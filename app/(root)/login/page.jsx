@@ -24,11 +24,9 @@ const LoginPage = () => {
       setLoading(true);
 
       const response = await axios.post("/api/users/login", user);
-      console.log("Login success", response.data);
 
       router.push("/profile");
     } catch (error) {
-      console.log("Login failed", error);
 
       if (error.response && error.response.status === 400) {
         setErrorMessage("Username/Password didn't match");

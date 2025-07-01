@@ -15,7 +15,6 @@ const verifyEmailPage = () => {
       setError(false)
     } catch (error) {
       setError(true);
-      console.log(error.response.data);
     }
   };
   useEffect(() => {

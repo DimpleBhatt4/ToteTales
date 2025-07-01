@@ -9,7 +9,6 @@ const profilePage = () => {
   const [data, setData] = useState({});
   const getUserDetails = async () => {
     const response = await axios.post("/api/users/me");
-    console.log(response.data.data);
     setData(response.data.data);
   };
   useEffect(() => {
@@ -21,7 +20,7 @@ const profilePage = () => {
       await axios.get("/api/users/logout");
       router.push("/login");
     } catch (error) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
   return (

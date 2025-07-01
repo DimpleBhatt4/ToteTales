@@ -7,7 +7,6 @@ const Category = async () => {
   let uniq_category = [];
   let img_id = 0;
   const products = await handleFetch("http://localhost:3000/api/products/viewProd");
-  console.log(products);
 
   products.map((product) => {
     if (!uniq_category.includes(product.category)) uniq_category.push(product.category);

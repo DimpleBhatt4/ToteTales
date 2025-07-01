@@ -30,7 +30,6 @@ export function middleware(request) {
   }
 
   //request to proceed if authenticated
-  console.log(`Authenticated access to: ${path}`);
   return NextResponse.next();
 }
 

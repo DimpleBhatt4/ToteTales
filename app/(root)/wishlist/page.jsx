@@ -35,7 +35,6 @@ const WishlistPage = () => {
       }
 
       const data = await response.json();
-      console.log("Product removed successfully:", data);
 
       setWishlistProducts((prevWishlist) =>
         prevWishlist.filter((item) => item._id !== wishlistId)

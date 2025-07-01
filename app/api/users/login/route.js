@@ -10,7 +10,6 @@ export async function POST(request) {
   try {
     const reqBody = await request.json();
     const { email, password } = reqBody;
-    console.log(reqBody);
 
     const user = await User.findOne({ email });
     if (!user) {
@@ -19,7 +18,6 @@ export async function POST(request) {
         { status: 400 }
       );
     }
-    console.log(user);
     const validPassword = await bcryptjs.compare(password, user.password);
     if (!validPassword) {
       return NextResponse.json(

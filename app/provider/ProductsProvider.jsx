@@ -16,7 +16,7 @@ export const ProductsProvider = ({ children }) => {
         const response = await handleFetch("http://localhost:3000/api/wishlist/viewWishlistItems");
         setWishlistProducts(response.wishlistProducts || []);
       } catch (error) {
-        console.log("Error fetching wishlist products:", error);
+        console.error("Error fetching wishlist products:", error);
       }
     };
   
@@ -24,9 +24,8 @@ export const ProductsProvider = ({ children }) => {
       try {
         const response = await handleFetch("http://localhost:3000/api/cart/viewCartItems");
         setCartProducts(response.userCart?.items || []);
-        console.log("cart productss", response)
       } catch (error) {
-        console.log("Error fetching cart products:", error);
+        console.error("Error fetching cart products:", error);
       }
     };
   
@@ -35,11 +34,9 @@ export const ProductsProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    console.log("Updated cartProducts:", cartProducts);
   }, [cartProducts]);
   
   useEffect(() => {
-    console.log("Updated wishlistProducts:", wishlistProducts);
   }, [wishlistProducts]);
   
   return (

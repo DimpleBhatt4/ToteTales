@@ -21,7 +21,6 @@ const AddProduct = () => {
     try {
         setLoading(true);
         const response = await axios.post('/api/products/adminPanel', product)
-        console.log("Product added successfully", response.data)
         setProduct({
             p_id: "",
             category: "",
@@ -33,7 +32,6 @@ const AddProduct = () => {
             img_url: "",
           })
     } catch (error) {
-        console.log("Product didn't add")
         setAlertMessage("Product ID already exist!")
     }
   }

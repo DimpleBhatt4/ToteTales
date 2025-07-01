@@ -8,7 +8,6 @@ const Sale = async ({searchParams}) => {
   );
 
   const saleItems = products.filter((item) => item.sale_price !== null);
-  console.log("sale items", saleItems);
 
   return (
     <ProductGrid title='Sale' initialProducts={saleItems} pageName='sale'
