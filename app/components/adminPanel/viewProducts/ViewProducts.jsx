@@ -7,7 +7,6 @@ import Image from "next/image";
 
 const ViewProducts = async () => {
   const products = await handleFetch("http://localhost:3000/api/products/viewProd");
-  console.log("present products", products);
   return <div>{products.map((product) => {
     return (
       <li className="list-none" key={product.p_id}>
